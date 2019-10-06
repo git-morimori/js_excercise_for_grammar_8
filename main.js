@@ -127,12 +127,13 @@ function createTodo() {
  */
 // ここにdeleteTodo関数を作る
 function deleteTodo() {
-	const delete_index = parseInt(prompt('削除するタスクの番号を指定してください'), 10);
-	if (delete_index >= todos.length || isNaN(delete_index)) {
+	const numberString = prompt('削除するタスクの番号を指定してください');
+	const deleteIndex = parseInt(numberString, 10);
+	if (deleteIndex >= todos.length || deleteIndex < 0 || isNaN(deleteIndex)) {
 		alert('不正な値のためスキップします');
 	} else {
-		deleted_todo = todos.splice(delete_index, 1);
-		alert(deleted_todo + 'を削除しました');
+		const deletedTodos = todos.splice(deleteIndex, 1);
+		alert(deletedTodos[0] + 'を削除しました');
 		showTodos();
 	}
 }
